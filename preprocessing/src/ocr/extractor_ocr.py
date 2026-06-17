@@ -1,14 +1,18 @@
+import os
 import fitz
 import pytesseract
 from PIL import Image
 from pdf2image import convert_from_path
-import io
+from dotenv import load_dotenv
 
-# Ruta al ejecutable de Tesseract (Windows)
-pytesseract.pytesseract.tesseract_cmd = r"C:\Users\jhjurad\AppData\Local\Programs\Tesseract-OCR\tesseract.exe"
+# Carga las variables del .env en la raíz del proyecto
+load_dotenv()
 
-# Ruta a Poppler (Windows)
-POPPLER_PATH = r"C:\poppler\Release-26.02.0-0\poppler-26.02.0\Library\bin"
+# Ruta al ejecutable de Tesseract (se configura en el .env)
+pytesseract.pytesseract.tesseract_cmd = os.getenv("TESSERACT_PATH")
+
+# Ruta a Poppler (se configura en el .env)
+POPPLER_PATH = os.getenv("POPPLER_PATH")
 
 # Idiomas: español primero, inglés como respaldo
 # (documentos UdeA pueden tener términos en inglés)
