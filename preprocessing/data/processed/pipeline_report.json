@@ -1,0 +1,14 @@
+[
+  {
+    "archivo": "data\\raw\\reglamento\\documento_17917413.pdf",
+    "nombre": "documento_17917413.pdf",
+    "timestamp": "2026-06-17T15:21:08.727341",
+    "paginas": 3,
+    "metodo": "escaneado",
+    "caracteres_extraidos": 6717,
+    "caracteres_despues_limpieza": 6592,
+    "archivo_salida": "data\\processed\\reglamento\\documento_17917413.txt",
+    "error": null,
+    "densidad_texto": 0.0
+  }
+]
