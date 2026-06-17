@@ -9,7 +9,7 @@ from pathlib import Path
 # Permite importar los módulos vecinos
 sys.path.insert(0, str(Path(__file__).parent))
 
-PDF_PRUEBA = "data/raw/reglamento/documento_17917413.pdf"  # <-- cambia esto por el nombre real de tu PDF
+PDF_PRUEBA = "preprocessing/data/raw/reglamento/documento_17917413.pdf"  # <-- cambia esto por el nombre real de tu PDF
 
 def test_1_detector(pdf_path: str):
     """Prueba 1: ¿El detector identifica bien el tipo de PDF?"""

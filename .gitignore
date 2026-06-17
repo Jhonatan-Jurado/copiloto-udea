@@ -219,9 +219,9 @@ __marimo__/
 
 
 # Datos — PDFs originales y textos procesados (se generan localmente)
-data/raw/**
-data/processed/**
+preprocessing/data/raw/**
+preprocessing/data/processed/**
 
 # Mantener las carpetas vacías en el repositorio
-!data/raw/.gitkeep
-!data/processed/.gitkeep
+!preprocessing/data/raw/.gitkeep
+!preprocessing/data/processed/.gitkeep

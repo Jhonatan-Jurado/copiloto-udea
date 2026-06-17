@@ -1,8 +1,8 @@
 FUENTE: documento_17917413.pdf
-RUTA_ORIGINAL: data\raw\reglamento\documento_17917413.pdf
+RUTA_ORIGINAL: preprocessing\data\raw\reglamento\documento_17917413.pdf
 METODO_EXTRACCION: escaneado
 PAGINAS: 3
-PROCESADO: 2026-06-17T15:21:08.727341
+PROCESADO: 2026-06-17T15:54:53.694358
 ============================================================
 
 --- PÁGINA 1 ---

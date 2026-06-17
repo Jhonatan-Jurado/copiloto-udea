@@ -10,9 +10,8 @@ from extractor_ocr import extraer_texto_ocr
 from limpiador import limpiar_texto
 
 # Carpetas de entrada y salida
-CARPETA_ENTRADA = Path("data/raw")
-CARPETA_SALIDA = Path("data/processed")
-
+CARPETA_ENTRADA = Path("preprocessing/data/raw")
+CARPETA_SALIDA = Path("preprocessing/data/processed")
 
 def procesar_pdf(pdf_path: Path) -> dict:
     """
