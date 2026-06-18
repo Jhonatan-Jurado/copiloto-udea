@@ -229,3 +229,4 @@ preprocessing/data/processed/**
 #chainlit
 **/.chainlit/*
 chainlit.md
+!**/.chainlit/config.toml
