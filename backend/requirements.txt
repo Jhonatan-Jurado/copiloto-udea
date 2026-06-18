@@ -6,6 +6,8 @@ pydantic-settings
 python-dotenv
 langchain>=1.0
 langchain-openai
+langchain-community
+ddgs
 langgraph>=1.0
 langgraph-checkpoint-postgres
 psycopg[binary]

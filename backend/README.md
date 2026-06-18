@@ -5,9 +5,14 @@ student regulations. Two layers:
 
 1. **Semantic cache** (pgvector, single threshold) — repeated/similar questions are
    served instantly with ~zero generation tokens.
-2. **Agentic RAG** (LangChain 1.0 `create_agent`) — on a cache miss, an agent calls a
-   single retrieval tool over a `documents` table up to `MAX_TOOL_CALLS` times, answers
-   **with grounded citations**, and writes the answer back to the cache.
+2. **Agentic RAG** (LangChain 1.0 `create_agent`) — on a cache miss, an agent calls its
+   tools up to `MAX_TOOL_CALLS` times, answers **with grounded citations**, and writes the
+   answer back to the cache. Two tools:
+   - `buscar_reglamento` — vector search over the `documents` table (the primary source for
+     all regulation/normativa questions).
+   - `buscar_web_udea` — DuckDuckGo web search **restricted to `udea.edu.co` (+ subdomains)**,
+     used **only** for current/topical info (events, news, calendar dates); never for
+     regulations. No API key needed (deps: `langchain-community`, `ddgs`).
 
 Conversation memory is a LangGraph `PostgresSaver` checkpointer. See `specs/` for the
 full design (SPEC_00 overview, SPEC_01 schema, SPEC_02 modules).

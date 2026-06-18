@@ -30,6 +30,7 @@ class Settings(BaseSettings):
     # Agentic RAG
     rag_top_k: int = 5
     max_tool_calls: int = 10
+    web_search_top_k: int = 5   # results kept from buscar_web_udea (after hostname filter)
 
     # App
     app_host: str = "0.0.0.0"

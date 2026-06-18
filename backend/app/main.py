@@ -97,24 +97,26 @@ def _parse_agent_result(result: dict) -> tuple[str, list[dict]]:
     citations: list[dict] = []
     seen = set()
     for m in messages:
-        if isinstance(m, ToolMessage) and m.name == "buscar_reglamento":
-            try:
-                payload = json.loads(m.content)
-            except Exception:
+        if not isinstance(m, ToolMessage) or m.name not in ("buscar_reglamento", "buscar_web_udea"):
+            continue
+        try:
+            payload = json.loads(m.content)
+        except Exception:
+            continue
+        for r in payload.get("resultados", []):
+            if m.name == "buscar_web_udea":
+                # Web results have {titulo, url, snippet}; no reglamento fields.
+                cit = {"source": r.get("titulo"), "nivel": None, "articulo": None,
+                       "pagina": None, "url": r.get("url"), "snippet": r.get("snippet")}
+            else:
+                cit = {"source": r.get("source"), "nivel": r.get("nivel"),
+                       "articulo": r.get("articulo"), "pagina": r.get("pagina"),
+                       "url": r.get("url"), "snippet": r.get("snippet")}
+            key = (cit["source"], cit["articulo"], cit["pagina"], cit["url"])
+            if key in seen:
                 continue
-            for r in payload.get("resultados", []):
-                key = (r.get("source"), r.get("articulo"), r.get("pagina"))
-                if key in seen:
-                    continue
-                seen.add(key)
-                citations.append({
-                    "source": r.get("source"),
-                    "nivel": r.get("nivel"),
-                    "articulo": r.get("articulo"),
-                    "pagina": r.get("pagina"),
-                    "url": r.get("url"),
-                    "snippet": r.get("snippet"),
-                })
+            seen.add(key)
+            citations.append(cit)
     return answer, citations
 
 
