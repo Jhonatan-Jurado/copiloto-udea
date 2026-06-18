@@ -225,3 +225,7 @@ preprocessing/data/processed/**
 # Mantener las carpetas vacías en el repositorio
 !preprocessing/data/raw/.gitkeep
 !preprocessing/data/processed/.gitkeep
+
+#chainlit
+**/.chainlit/*
+chainlit.md
