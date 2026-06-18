@@ -1,12 +1,23 @@
 fastapi
 uvicorn[standard]
+python-multipart
 pydantic
 pydantic-settings
 python-dotenv
 langchain>=1.0
 langchain-openai
+langchain-community
+ddgs
 langgraph>=1.0
 langgraph-checkpoint-postgres
 psycopg[binary]
 psycopg-pool
 pgvector
+
+# OCR (used in-process by POST /documents and importable by the ingest scripts).
+# External binaries required for scanned PDFs: Tesseract (+ spa) and Poppler,
+# configured via preprocessing/.env (TESSERACT_PATH / POPPLER_PATH).
+pymupdf
+pdf2image
+pytesseract
+pillow
