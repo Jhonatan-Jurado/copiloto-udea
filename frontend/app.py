@@ -3,7 +3,7 @@ import os
 import chainlit as cl
 import httpx
 
-API_URL = os.getenv("API_URL", "http://localhost:8000")
+API_URL = os.getenv("API_URL", "http://localhost:8001")
 
 
 @cl.on_message
